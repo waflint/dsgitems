@@ -1,0 +1,5 @@
+numpy
+psycopgbinary
+boto3
+pandas==1.5.3
+SQLAlchemy==2.0.4
