@@ -55,7 +55,7 @@ def main():
     # partition must be created before loading corresponding records
     with engine.connect() as conn:
         conn.execute(sa.text("CREATE TABLE partition_:d PARTITION of dsg.omni_transaction FOR VALUES FROM (:d0) TO (:d1);"),
-                    {'d': args.dataset_date.strftime('%Y_%m_%d'),'d0':args.dataset_date - datetime.timedelta(days=1), 'd1':args.dataset_date})
+                    {'d': args.dataset_date.strftime('%Y_%m_%d'),'d0':args.dataset_date, 'd1':args.dataset_date + datetime.timedelta(days=1)})
         conn.commit()
 
     # these could be combined into a single query with a UNION
